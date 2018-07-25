@@ -6,7 +6,7 @@ from discord.ext import commands
 
 
 class Bot(commands.Bot):
-  def __call__(self, *args, **kwargs)
+  def __call__(self, *args, **kwargs):
     self.print("Running bot now...")
     self.run(*args, **kwargs)
 
