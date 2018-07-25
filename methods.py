@@ -21,10 +21,7 @@ def start_logger(level):
 
   fmt = logging.Formatter("%(asctime)s:%(levelname)s:%(name)s: %(message)s")
 
-  if not os.path.exists("/app/cache"):
-    os.makedirs("/app/cache")
-
-  handler = logging.FileHandler("/app/cache/discord.log", "w+", "utf-8")
+  handler = logging.FileHandler("/app/discord.log", "w+", "utf-8")
   handler.setFormatter(fmt)
 
   logger.addHandler(handler)
