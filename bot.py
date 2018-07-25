@@ -13,3 +13,11 @@ class Bot(commands.Bot):
   def print(self, *args, **opts):
     time = datetime.now().strftime("[%T]")
     print(time, *args, **opts)
+
+  async def on_ready(self):
+    try:
+      app = self.application_info()
+      self.owner = app.owner
+      self.id = app.id
+    except Exception as e:
+      pass
