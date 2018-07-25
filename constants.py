@@ -9,3 +9,5 @@ owner = environ.get("OWNER")
 prefix = environ.get("PREFIX")
 
 game = environ.get("GAME_STATUS")
+
+logging_level = eviron.get("LOGGING")

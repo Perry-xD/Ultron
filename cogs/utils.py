@@ -10,9 +10,7 @@ class UtilsCog:
 
   @commands.command()
   async def ping(self, ctx):
-    print(ctx)
-    await ctx.send("Pong! ({0:.0f}ms)".format(self.bot.latency * 1000),
-                   delete_after=10)
+    await ctx.send("Pong! ({0:.0f}ms)".format(self.bot.latency * 1000))
 
   async def on_message(self, msg):
     await self.bot.process_commands(msg)

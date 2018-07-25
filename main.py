@@ -6,8 +6,9 @@ import time
 import traceback
 import discord
 from discord.ext import commands
-from constants import *
+import methods
 from bot import Bot
+from constants import *
 
 
 bot = Bot(prefix)  # noqa: F405
@@ -36,4 +37,5 @@ if __name__ == "__main__":
       bot.print(f"Failed to load extension {ext}", file=sys.stderr)
       traceback.print_exc()
 
+  methods.start_logger(logging_level)  # noqa: F405
   bot(token, bot=True)  # noqa: F405
