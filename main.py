@@ -5,6 +5,7 @@ import os
 import sys
 import asyncio
 import discord
+from discord.ext impost commands
 import constants as C
 from bot import Bot
 
@@ -44,7 +45,8 @@ async def on_command_error(ctx, e):
 
   bot.print(e)
 
-@bot.command
+@commands.is_owner()
+@bot.command()
 async def shutdown(ctx):
   await bot.logout()
   bot.print("Logged out. Shutting down...")
