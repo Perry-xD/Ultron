@@ -17,6 +17,7 @@ class Bot(commands.Bot):
   async def on_ready(self):
     try:
       app = await self.application_info()
+
       self.owner = app.owner
       self.id = app.id
     except Exception as e:
