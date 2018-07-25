@@ -5,7 +5,7 @@ import os
 import sys
 import asyncio
 import discord
-from discord.ext impost commands
+from discord.ext import commands
 import constants as C
 from bot import Bot
 
