@@ -30,7 +30,7 @@ async def on_connect():
 
 @bot.event
 async def on_message(message):
-  await bot.process_commands(m)
+  await bot.process_commands(message)
 
   if bot.id in [m.id for m in message.mentions]:
     message.channel.send("My current prefix is {} {}".format(
