@@ -20,7 +20,7 @@ def start_logger(level):
 
   fmt = logging.Formatter("%(asctime)s:%(levelname)s:%(name)s: %(message)s")
 
-  handler = logging.FileHandler("/app/cache/discord.log", "w", "utf-8")
+  handler = logging.FileHandler("/app/cache/discord.log", "a+", "utf-8")
   handler.setFormatter(fmt)
 
   logger.addHandler(handler)
