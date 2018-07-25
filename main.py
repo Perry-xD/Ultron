@@ -60,7 +60,8 @@ async def on_command_error(ctx, e):
 
 @bot.command()
 async def ping(ctx):
-  await ctx.send("Pong! ({0.3f})".format(bot.latency))
+  await ctx.send("Pong! ({0:.6f}s)".format(bot.latency))
+
 
 @commands.is_owner()
 @bot.command()
