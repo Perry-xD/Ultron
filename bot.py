@@ -22,3 +22,21 @@ class Bot(commands.Bot):
       self.id = app.id
     except Exception as e:
       pass
+
+  async def on_command_error(self, ctx, e):
+    if type(e).__name__ in ("CommandNotFound", "CheckFailure", "NotOwner"):
+      return
+
+    if type(e).__name__ in ("BadArgument", "MissingRequiredArgument"):
+      await ctx.send(f"`{e}`")
+      return
+
+    if type(e).__name__ == "CommandInvokeError":
+      if type(e.original).__name__ in ("HTTPException", "NotFound"):
+        return
+
+      if type(e.original).__name__ == ("botException", "Forbidden"):
+        await ctx.send(f"`{e}`")
+        return
+
+    self.bot.print(e)

@@ -7,6 +7,5 @@ token = environ.get("TOKEN")
 owner = environ.get("OWNER")
 
 prefix = environ.get("PREFIX")
-prefixes = []
 
 game = environ.get("GAME_STATUS")
