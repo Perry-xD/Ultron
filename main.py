@@ -3,6 +3,7 @@
 import re
 import os
 import sys
+import time
 import asyncio
 import discord
 from discord.ext import commands
@@ -33,7 +34,7 @@ async def on_message(message):
   await bot.process_commands(message)
 
   if bot.id in [m.id for m in message.mentions]:
-    message.channel.send("My current prefix is {} {}".format(
+    await message.channel.send("My current prefix is {} {}".format(
       bot.command_prefix, message.author.mention))
 
 
@@ -62,6 +63,7 @@ async def on_command_error(ctx, e):
 async def shutdown(ctx):
   await bot.logout()
   bot.print("Logged out. Shutting down...")
+  time.sleep(0.5)
 
 
 if __name__ == "__main__":
