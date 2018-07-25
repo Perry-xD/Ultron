@@ -34,7 +34,7 @@ async def on_message(message):
   await bot.process_commands(message)
 
   if bot.id in [m.id for m in message.mentions]:
-    await message.channel.send("My current prefix is {} {}".format(
+    await message.channel.send("My current prefix is `{}` {}".format(
       bot.command_prefix, message.author.mention))
 
 
@@ -58,13 +58,25 @@ async def on_command_error(ctx, e):
   bot.print(e)
 
 
+@bot.command()
+async def ping(ctx):
+  await ctx.send("Pong! ({0.3f})".format(bot.latency))
+
+@commands.is_owner()
+@bot.command()
+async def restart(ctx):
+  await bot.logout()
+  bot.print("Logged out. Shutting down...")
+  time.sleep(0.5)
+
+
 @commands.is_owner()
 @bot.command()
 async def shutdown(ctx):
   await bot.logout()
   bot.print("Logged out. Shutting down...")
   time.sleep(0.5)
-
+  exit(1)
 
 if __name__ == "__main__":
   bot(C.token)
