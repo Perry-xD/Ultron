@@ -14,7 +14,7 @@ def choose_prefix(default, *prefixes):
   return prefix
 
 
-def start_logging(level):
+def start_logger(level):
   logger = logging.getLogger('discord')
   logger.setLevel(eval(f"logging.{level}"))
 
