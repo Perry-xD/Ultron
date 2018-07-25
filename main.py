@@ -37,5 +37,5 @@ if __name__ == "__main__":
       bot.print(f"Failed to load extension {ext}", file=sys.stderr)
       traceback.print_exc()
 
-  methods.start_logger(logging_level)  # noqa: F405
+  logger = methods.start_logger(logging_level)  # noqa: F405
   bot(token, bot=True)  # noqa: F405

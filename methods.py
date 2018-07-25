@@ -25,3 +25,4 @@ def start_logger(level):
   handler.setFormatter(fmt)
 
   logger.addHandler(handler)
+  return logger
