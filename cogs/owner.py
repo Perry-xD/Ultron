@@ -15,6 +15,7 @@ class OwnerCog:
     await self.bot.logout()
     self.bot.print("Logged out. Shutting down...")
     time.sleep(0.5)
+    exit(0)
 
 
   @commands.command()

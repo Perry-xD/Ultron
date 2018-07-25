@@ -39,4 +39,4 @@ class Bot(commands.Bot):
         await ctx.send(f"`{e}`")
         return
 
-    self.bot.print(e)
+    self.print(e)
