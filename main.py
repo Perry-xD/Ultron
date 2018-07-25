@@ -12,6 +12,7 @@ from bot import Bot
 
 bot = Bot(C.prefix)
 
+
 @bot.event
 async def on_connect():
   bot.print("Connected to Discord...")
@@ -25,6 +26,14 @@ async def on_connect():
 
   bot.print("Logged in as %s" % bot.user)
   bot.print("Command prefix: '%s'" % bot.command_prefix)
+
+
+@bot.event
+async def on_message(message):
+  if bot.id in [m.id for m in message.mentions]:
+    message.channel.send("My current prefix is {} {}".format(
+      bot.command_prefix, message.author.mention))
+
 
 @bot.event
 async def on_command_error(ctx, e):
@@ -45,10 +54,13 @@ async def on_command_error(ctx, e):
 
   bot.print(e)
 
+
 @commands.is_owner()
 @bot.command()
 async def shutdown(ctx):
   await bot.logout()
   bot.print("Logged out. Shutting down...")
 
-bot(C.token)
+
+if __name__ == "__main__":
+  bot(C.token)
