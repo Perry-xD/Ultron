@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
 import json
-from os import environ
+import os
 
 token = os.environ.get("TOKEN")
 owner = os.environ.get("OWNER")
