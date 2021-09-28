@@ -1,2 +1,2 @@
-git+git://github.com/Rapptz/discord.py.git@rewrite#egg=discord.py
+discord.py
 yarl<1.2
